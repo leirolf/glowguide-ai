@@ -12,7 +12,7 @@ export interface PaletteResponse {
 
 export async function generatePalette(skinTone: string, occasion: string): Promise<PaletteResponse> {
   const response = await ai.models.generateContent({
-    model: "gemini-3.1-pro-preview",
+    model: "gemini-2.0-flash",
     contents: `Generate a personalized makeup palette for a person with ${skinTone} skin tone for a ${occasion} occasion.`,
     config: {
       systemInstruction: "You are a professional makeup artist AI. Provide expert, beginner-friendly, and aesthetic makeup recommendations. Do not give medical advice. Keep the tone friendly and helpful.",
@@ -40,7 +40,7 @@ export async function generatePalette(skinTone: string, occasion: string): Promi
 
 export async function getChatResponse(message: string, history: { role: 'user' | 'model', parts: { text: string }[] }[]) {
   const chat = ai.chats.create({
-    model: "gemini-3.1-pro-preview",
+    model: "gemini-2.0-flash",
     config: {
       systemInstruction: "You are GlowGuide AI, a professional makeup artist. You help users with makeup tips, product recommendations, and techniques. Keep it friendly, aesthetic, and professional. Do not give medical advice.",
     },
